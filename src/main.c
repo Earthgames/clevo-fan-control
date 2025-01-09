@@ -386,7 +386,7 @@ static int main_ec_worker(void) {
             }
         }
         //
-        usleep(200 * 1000);
+        usleep(2e6);
     }
     printf("worker quit\n");
     return EXIT_SUCCESS;
@@ -423,7 +423,7 @@ static void main_ui_worker(int argc, char **argv) {
     app_indicator_set_title(indicator, "Clevo Fan Control");
     app_indicator_set_icon_theme_path(indicator, ICON_PATH);
     app_indicator_set_menu(indicator, GTK_MENU(indicator_menu));
-    g_timeout_add(500, &ui_update, NULL);
+    g_timeout_add(2e3, &ui_update, NULL);
     ui_toggle_menuitems(share_info->auto_duty ? -1 : share_info->fan_duty);
     gtk_main();
     printf("main on UI quit\n");
