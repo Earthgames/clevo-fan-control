@@ -70,8 +70,8 @@
 #define EC_REG_FAN_RPMS_HI 0xD0
 #define EC_REG_FAN_RPMS_LO 0xD1
 
-#define MAX_FAN_RPM 4400.0
-#define MIN_FAN_DUTY 16
+#define MAX_FAN_RPM 8800.0
+#define MIN_FAN_DUTY 25
 
 typedef enum {
     NA = 0, AUTO = 1, MANUAL = 2
@@ -537,8 +537,8 @@ static int ec_auto_duty_adjust(void) {
     share_info->last_update_time_ms = now;
 
     // "Silent" profile
-    int max_fan_duty = 40;
-    int min_temp_for_duty_increase = 60;
+    int max_fan_duty = 60;
+    int min_temp_for_duty_increase = 50;
     int max_temp = 105;
     int max_fan_duty_step = 1;
     int calculated_fan_duty = MAX(MIN_FAN_DUTY,
