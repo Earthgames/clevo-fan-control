@@ -463,9 +463,8 @@ static gboolean ui_update(gpointer user_data) {
     char icon_name[256];
     double load = ((double) share_info->fan_rpms) / MAX_FAN_RPM * 100.0;
     double load_r = round(load / 5.0) * 5.0;
-    sprintf(label, "Clevo Fan Control\n%d℃ %d℃\n%i RPM", share_info->cpu_temp,
-            share_info->gpu_temp, share_info->fan_rpms);
-    app_indicator_set_label(indicator, label, "XXXXXX");
+    sprintf(label, "Clevo Fan Control\n%d℃ %d℃\n%i RPM\nLoad%02d", share_info->cpu_temp,
+            share_info->gpu_temp, share_info->fan_rpms, (int) load_r);
     app_indicator_set_title(indicator, label);
     sprintf(icon_name, "hicolor_status_16x16_brasero-disc-%02d", (int) load_r);
     app_indicator_set_icon_full(indicator, icon_name, "Fan spinning; Wheee");
