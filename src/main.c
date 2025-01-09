@@ -44,6 +44,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <time.h>
+#include "config.h"
 
 #include <libappindicator/app-indicator.h>
 
@@ -420,6 +421,7 @@ static void main_ui_worker(int argc, char **argv) {
     app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ACTIVE);
     app_indicator_set_ordering_index(indicator, -2);
     app_indicator_set_title(indicator, "Clevo Fan Control");
+    app_indicator_set_icon_theme_path(indicator, ICON_PATH);
     app_indicator_set_menu(indicator, GTK_MENU(indicator_menu));
     g_timeout_add(500, &ui_update, NULL);
     ui_toggle_menuitems(share_info->auto_duty ? -1 : share_info->fan_duty);
@@ -465,8 +467,8 @@ static gboolean ui_update(gpointer user_data) {
             share_info->gpu_temp, share_info->fan_rpms);
     app_indicator_set_label(indicator, label, "XXXXXX");
     app_indicator_set_title(indicator, label);
-    sprintf(icon_name, "brasero-disc-%02d", (int) load_r);
-//    app_indicator_set_icon(indicator, icon_name);
+    sprintf(icon_name, "hicolor_status_16x16_brasero-disc-%02d", (int) load_r);
+    app_indicator_set_icon_full(indicator, icon_name, "Fan spinning; Wheee");
 
     return G_SOURCE_CONTINUE;
 }

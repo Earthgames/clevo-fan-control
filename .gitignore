@@ -78,6 +78,10 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+# Compile artifact
+src/config.h
+clevo-fan-control
+
 # Build and output directories
 bin/
 obj/
@@ -95,3 +99,4 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 cmake-build-*
+.cache

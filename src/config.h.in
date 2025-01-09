@@ -1,0 +1,6 @@
+#ifndef CLEVO_FAN_CONFIG
+#define CLEVO_FAN_CONFIG
+
+#define ICON_PATH "@ICON_PATH@"
+
+#endif //CLEVO_FAN_CONFIG

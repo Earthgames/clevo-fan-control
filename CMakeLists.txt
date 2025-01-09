@@ -7,6 +7,9 @@ project(ClevoFanControl C)
 # Enable the language standard.
 set(CMAKE_C_STANDARD 99)
 
+get_filename_component(ICON_PATH "${CMAKE_SOURCE_DIR}/icons" ABSOLUTE)
+message(STATUS "Configuring icons_path with path: ${ICON_PATH}")
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/src/config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/src/config.h @ONLY)
 # Explicitly link the math library.
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -lm")
 
